@@ -8,6 +8,7 @@ using System.Text;
 using TaskManagement.Application.Identity;
 using TaskManagement.Application.Models.Identity;
 using TaskManagement.Identity.DbContext;
+using TaskManagement.Identity.Helpers;
 using TaskManagement.Identity.Models;
 using TaskManagement.Identity.Services;
 
@@ -50,9 +51,13 @@ public static class IdentityServiceRegistration
                 ValidateLifetime = true,
                 ClockSkew = TimeSpan.Zero,
 
-
-
             };
+        });
+
+        services.AddOpenApi(options =>
+        {
+            options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
+            options.OpenApiVersion = Microsoft.OpenApi.OpenApiSpecVersion.OpenApi3_0;
         });
 
         return services;

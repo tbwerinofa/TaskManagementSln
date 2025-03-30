@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TaskManagement.Application.Identity;
 using TaskManagement.Application.Models.Identity;
 
@@ -16,12 +17,14 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("Login")]
+    [AllowAnonymous]
     public async Task<ActionResult<AuthResponse>> Login(AuthRequest request)
     {
         return Ok(await _authenticationService.Login(request));
     }
 
     [HttpPost("register")]
+    [AllowAnonymous]
     public async Task<ActionResult<RegistrationResponse>> Register(RegistrationRequest request)
     {
         return Ok(await _authenticationService.Register(request));

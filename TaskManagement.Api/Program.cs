@@ -3,6 +3,7 @@ using TaskManagement.Persistence;
 using TaskManagement.Srv;
 using TaskManagement.Application;
 using Serilog;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,7 +33,10 @@ builder.Services.AddCors(o =>
     });
 });
 
-builder.Services.AddOpenApi();
+builder.Services.AddHttpContextAccessor();
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
