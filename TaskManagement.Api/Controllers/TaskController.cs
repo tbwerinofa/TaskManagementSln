@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagement.Application.Features.TaskEntity.Commands.CreateTaskEntity;
@@ -11,7 +12,7 @@ namespace TaskManagement.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-
+[Authorize]
 public class TaskEntitysController : ControllerBase
 {
     private readonly IMediator _mediator;
