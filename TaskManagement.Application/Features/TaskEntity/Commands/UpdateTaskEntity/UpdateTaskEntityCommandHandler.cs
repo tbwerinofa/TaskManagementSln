@@ -32,6 +32,8 @@ namespace TaskManagement.Application.Features.TaskEntity.Commands.UpdateTaskEnti
             var validator = new UpdateTaskEntityCommandValidator(_taskEntityRepository, _taskStatusEntityRepository);
             var validationResults = await validator.ValidateAsync(request);
 
+            var dbTaskEntity = await _taskEntityRepository.GetByIdAsync(request.Id);
+
             if (!validationResults.IsValid)
             {
                 _logger.LogWarning("Validation update request for {0} - {1}", nameof(TaskManagament.Domain.TaskEntity), request.Id);
@@ -39,9 +41,9 @@ namespace TaskManagement.Application.Features.TaskEntity.Commands.UpdateTaskEnti
             }
 
             //convert to domain entity object
-            var TaskEntity = _mapper.Map<TaskManagament.Domain.TaskEntity>(request);
+            _mapper.Map(request, dbTaskEntity);
             //add to database
-            await _taskEntityRepository.UpdateAsync(TaskEntity);
+            await _taskEntityRepository.UpdateAsync(dbTaskEntity);
             //return record id
 
             return Unit.Value;

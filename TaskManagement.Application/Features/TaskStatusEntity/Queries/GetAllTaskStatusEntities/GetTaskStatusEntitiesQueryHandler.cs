@@ -8,13 +8,13 @@ namespace TaskManagement.Application.Features.TaskEntity.Queries.GetAllTaskEntit
 
 public class GetTaskStatusEntitiesQueryHandler : IRequestHandler<GetTaskStatusEntitiesQuery, List<TaskStatusEntityDto>>
 {
-    private readonly ITaskEntityRepository _TaskEntityRepository;
+    private readonly ITaskStatusEntityRepository _taskStatusEntityRepository;
     private readonly IAppLogger<GetTaskStatusEntitiesQueryHandler> _logger;
     private readonly IMapper _mapper;
 
-    public GetTaskStatusEntitiesQueryHandler(IMapper mapper,ITaskEntityRepository TaskEntityRepository, IAppLogger<GetTaskStatusEntitiesQueryHandler> logger)
+    public GetTaskStatusEntitiesQueryHandler(IMapper mapper,ITaskStatusEntityRepository taskStatusEntityRepository, IAppLogger<GetTaskStatusEntitiesQueryHandler> logger)
     {
-        _TaskEntityRepository = TaskEntityRepository;
+        _taskStatusEntityRepository = taskStatusEntityRepository;
         this._logger = logger;
         _mapper = mapper;
     }
@@ -24,7 +24,7 @@ public class GetTaskStatusEntitiesQueryHandler : IRequestHandler<GetTaskStatusEn
     public async Task<List<TaskStatusEntityDto>> Handle(GetTaskStatusEntitiesQuery request, CancellationToken cancellationToken)
     {
         //query database
-        var taskEntities =  await _TaskEntityRepository.GetAsync();
+        var taskEntities =  await _taskStatusEntityRepository.GetAsync();
 
         //convert objects to dto
         var data = _mapper.Map<List<TaskStatusEntityDto>>(taskEntities);

@@ -7,12 +7,12 @@ namespace TaskManagement.Application.Features.TaskEntity.Queries.GetTaskEntityDe
 
 public class GetTaskEntityDetailsQueryHandler : IRequestHandler<GetTaskEntityDetailsQuery, TaskEntityDetailDto>
 {
-    private readonly ITaskEntityRepository _TaskEntityRepository;
+    private readonly ITaskEntityRepository _taskEntityRepository;
     private readonly IMapper _mapper;
 
-    public GetTaskEntityDetailsQueryHandler(IMapper mapper,ITaskEntityRepository TaskEntityRepository)
+    public GetTaskEntityDetailsQueryHandler(IMapper mapper,ITaskEntityRepository taskEntityRepository)
     {
-        _TaskEntityRepository = TaskEntityRepository;
+        _taskEntityRepository = taskEntityRepository;
        _mapper = mapper;
     }
 
@@ -21,15 +21,15 @@ public class GetTaskEntityDetailsQueryHandler : IRequestHandler<GetTaskEntityDet
     public async Task<TaskEntityDetailDto> Handle(GetTaskEntityDetailsQuery request, CancellationToken cancellationToken)
     {
         //query database
-        var TaskEntity =  await _TaskEntityRepository.GetByIdAsync(request.Id);
+        var taskEntity =  await _taskEntityRepository.GetByIdAsync(request.Id);
 
         //verify that record exists
-        if (TaskEntity == null)
+        if (taskEntity == null)
         {
-            throw new NotFoundException(nameof(TaskEntity), request.Id);
+            throw new NotFoundException(nameof(taskEntity), request.Id);
         }
         //convert objects to dto
-        var data = _mapper.Map<TaskEntityDetailDto>(TaskEntity);
+        var data = _mapper.Map<TaskEntityDetailDto>(taskEntity);
 
         //return DTO
         return data;
