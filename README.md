@@ -30,7 +30,7 @@ This can be done by
 
 If you found an issue or would like to submit an improvement to this project, please submit an issue using the issues tab above. If you would like to submit a PR fix, reference the issue you created!
 
-## To do
+## In Progress
 The front end to consume the API is under development using the REACt Framework
 
    
