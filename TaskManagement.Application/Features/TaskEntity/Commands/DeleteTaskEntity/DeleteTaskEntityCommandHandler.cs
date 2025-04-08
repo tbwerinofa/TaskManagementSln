@@ -18,16 +18,16 @@ namespace TaskManagement.Application.Features.TaskEntity.Commands.DeleteTaskEnti
         public async Task<Unit> Handle(DeleteTaskEntityCommand request, CancellationToken cancellationToken)
         {
             //retrieve domain entity object
-            var TaskEntity = await _taskEntityRepository.GetByIdAsync(request.Id);
+            var taskEntity = await _taskEntityRepository.GetByIdAsync(request.Id);
 
             //verify that record exists
-            if (TaskEntity == null)
+            if (taskEntity == null)
             {
-                throw new NotFoundException(nameof(TaskEntity), request.Id);
+                throw new NotFoundException(nameof(taskEntity), request.Id);
             }
 
             //remove from db
-            await _taskEntityRepository.DeleteAsync(TaskEntity);
+            await _taskEntityRepository.DeleteAsync(taskEntity);
             //return record id
 
             return Unit.Value;

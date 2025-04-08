@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Persistence.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Application.UnitTests", "TaskManagement.Application.UnitTests\TaskManagement.Application.UnitTests.csproj", "{E9ADCA6B-E357-4D30-8587-E1D2A034793F}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "taskmanagementui", "TaskManagementUI\taskmanagementui.esproj", "{AEF2BF83-FCC7-4477-BBAD-879978C89A5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,12 @@ Global
 		{E9ADCA6B-E357-4D30-8587-E1D2A034793F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9ADCA6B-E357-4D30-8587-E1D2A034793F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9ADCA6B-E357-4D30-8587-E1D2A034793F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF2BF83-FCC7-4477-BBAD-879978C89A5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF2BF83-FCC7-4477-BBAD-879978C89A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF2BF83-FCC7-4477-BBAD-879978C89A5F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AEF2BF83-FCC7-4477-BBAD-879978C89A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF2BF83-FCC7-4477-BBAD-879978C89A5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF2BF83-FCC7-4477-BBAD-879978C89A5F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,5 +94,6 @@ Global
 		{094B567E-9073-4AC5-BD51-39AF424F515B} = {2A4AD0EA-0004-4227-8FED-FD2D8C94244C}
 		{A7720DDC-5AF9-4600-90D3-2D307ABF5E34} = {F2786DA1-FB79-42D0-9FDC-75D03DE04AA1}
 		{E9ADCA6B-E357-4D30-8587-E1D2A034793F} = {F2786DA1-FB79-42D0-9FDC-75D03DE04AA1}
+		{AEF2BF83-FCC7-4477-BBAD-879978C89A5F} = {4B516EC3-0DE1-405D-8BB4-EE1000776393}
 	EndGlobalSection
 EndGlobal

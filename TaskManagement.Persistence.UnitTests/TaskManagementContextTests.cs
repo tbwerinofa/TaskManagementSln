@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Moq;
 using Shouldly;
 using TaskManagament.Domain;
+using TaskManagement.Application.Identity;
 using TaskManagement.Persistence.DatabaseContext;
 
 namespace TaskManagement.Persistence.UnitTests;
@@ -14,7 +16,10 @@ public class TaskManagementContextTests
             .UseInMemoryDatabase(Guid.NewGuid().ToString())
             .Options;
 
-        _taskDatabaseContext = new TaskDatabaseContext(dbOptions);
+        var  _userService = new Mock<IUserService>();
+        _userService.Setup(u => u.UserId).Returns("8adcec3c-4f91-4064-9477-f6a4164a52c8");
+
+        _taskDatabaseContext = new TaskDatabaseContext(dbOptions, _userService.Object);
     }
 
     [Fact]

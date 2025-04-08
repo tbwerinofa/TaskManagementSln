@@ -28,12 +28,12 @@ namespace TaskManagement.Application.Features.TaskEntity.Commands.CreateTaskEnti
                 throw new BadRequestException("Invalid Task", validationResults);
 
             //convert to domain entity object
-            var TaskEntity = _mapper.Map<TaskManagament.Domain.TaskEntity>(request);
+            var taskEntity = _mapper.Map<TaskManagament.Domain.TaskEntity>(request);
             //add to database
-            await _taskEntityRepository.CreateAsync(TaskEntity);
+            await _taskEntityRepository.CreateAsync(taskEntity);
             //return record id
 
-            return TaskEntity.Id;
+            return taskEntity.Id;
         }
     }
 }

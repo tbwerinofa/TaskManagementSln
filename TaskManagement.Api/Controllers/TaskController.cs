@@ -34,8 +34,8 @@ public class TaskEntitysController : ControllerBase
     [HttpGet("{id}")]
     public async Task<TaskEntityDetailDto> Get(int id)
     {
-        var TaskEntity = await _mediator.Send(new GetTaskEntityDetailsQuery(id));
-        return TaskEntity;
+        var taskEntity = await _mediator.Send(new GetTaskEntityDetailsQuery(id));
+        return taskEntity;
     }
 
     // POST api/<TaskEntitysController>
